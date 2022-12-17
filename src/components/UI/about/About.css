@@ -1,0 +1,98 @@
+.about {
+  position: absolute;
+  width:100%;
+  background: linear-gradient(132deg, #07bc4c, #000000, #FFA500);
+  background-size: 400% 400%;
+  margin: 0;
+  padding: 0;
+  animation: Gradient 15s ease infinite;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.info {
+  position: relative;
+  box-sizing: border-box;
+  box-shadow: black;
+  width: 30rem;
+  border-radius: 10px;
+}
+
+.info h1 {
+  color: #FFFFFF;
+  font-family: 'Josefin Sans', sans-serif;
+  box-sizing: border-box;
+}
+
+.info p {
+  color: white;
+  font-family: 'Josefin Sans', sans-serif;
+  box-sizing: border-box;
+  font-size: 20px;
+}
+
+.info:nth-child(1) {
+  width: 50rem;
+  top: 10%;
+  left: 5%;
+}
+.info:nth-child(2) {
+  width: 50rem;
+  top: 18%;
+  left: 5%;
+}
+
+.info:nth-child(3) {
+  top: -48%;
+  left: 60%;
+}
+
+.btn {
+  position: relative;
+  top: -40%;
+  left: 60%;
+  width: 30%;
+  height: 10%;
+  display: inline-block;
+  box-sizing: border-box;
+  padding: 0 24px;
+  margin: 0 15px 15px 0;
+  outline: none;
+  border: none;
+  border-radius: 3px;
+  line-height: 37px;
+  text-transform: uppercase;
+  font-weight: normal;
+  text-decoration: none;
+  color: #07bc4c;
+  background-color: #fff;
+  cursor: pointer;
+  user-select: none;
+  appearance: none;
+  touch-action: manipulation;
+  transition: box-shadow .18s ease-out,background .18s ease-out,color .18s ease-out;
+  font-size: 30px;
+}
+
+.btn p {
+  position: relative;
+  top: -15%;
+  left: 20%;
+}
+
+.btn:focus-visible {
+  box-shadow: 0 0 0 3px lightskyblue;
+}
+.btn:hover {
+  box-shadow: 0 1px 1px 0  #cfcfcf, 0 2px 5px 0  #cfcfcf;
+  background: #07bc4c;
+  color: #FFFFFF;
+}
+.btn:active {
+  background-color: #efefef !important;
+}
+.btn:disabled {
+  background-color: #eee;
+  color: #444;
+  pointer-events: none;
+}
