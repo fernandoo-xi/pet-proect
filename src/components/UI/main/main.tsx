@@ -3,6 +3,7 @@ import React, {FC, useEffect} from 'react';
 import './Main.css';
 import {useNavigate} from "react-router-dom";
 import About from "../about/about";
+import Calendar from "../calendar/calendar";
 
 const Main: FC = () => {
 
@@ -38,6 +39,8 @@ const Main: FC = () => {
             <div className={"devider"}><p>Ведь если че-то то есть о чем и как</p></div>
 
         <About />
+
+
         </div>
     );
 };

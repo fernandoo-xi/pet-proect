@@ -8,6 +8,7 @@ import UserAuthorized from "../../auth/UserAuthorized";
 import RequireAuth from "../../auth/RequireAuth";
 
 import './App.css';
+import Calendar from "../UI/calendar/calendar";
 
 const App: FC = () => {
 
@@ -15,6 +16,7 @@ const App: FC = () => {
         <Router>
       <Routes>
           <Route path="/" element={<Main />} />
+          <Route path="/calendar" element={<Calendar />} />
 
       </Routes>
         </Router>
