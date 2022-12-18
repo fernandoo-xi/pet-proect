@@ -1,9 +1,11 @@
-import React, {FC} from 'react';
+import React, {FC, useEffect} from 'react';
 
 import './About.css';
+import {useNavigate} from "react-router-dom";
 
 
 const About: FC = () => {
+
     return (
         <React.Fragment>
             <div className="about">
