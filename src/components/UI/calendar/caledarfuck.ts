@@ -1,4 +1,4 @@
-// @ts-nocheck
+
 
 const DAYS_IN_WEEK = 7;
 
@@ -21,7 +21,7 @@ const Month = {
     December: 11
 };
 
-export function areEqual(a, b) {
+export function areEqual(a: Date, b: Date) {
     if (!a || !b) return false;
 
     return (
@@ -31,11 +31,11 @@ export function areEqual(a, b) {
     );
 }
 
-export function isLeapYear(year) {
+export function isLeapYear(year: number) {
     return !((year % 4) || (!(year % 100) && (year % 400)));
 }
 
-export function getDaysInMonth(date) {
+export function getDaysInMonth(date: Date) {
     const month = date.getMonth();
     const year = date.getFullYear();
     const daysInMonth = DAYS_IN_MONTH[month];
@@ -47,21 +47,21 @@ export function getDaysInMonth(date) {
     }
 }
 
-export function getDayOfWeek(date) {
+export function getDayOfWeek(date: Date) {
     const dayOfWeek = date.getDay();
 
     return WEEK_DAYS_FROM_MONDAY[dayOfWeek];
 }
 
-export function getMonthData(year, month) {
-    const result = [];
+export function getMonthData(year: number, month: number) {
+    const result: [[number | undefined | Date]] = [[0]];
     const date = new Date(year, month);
     const daysInMonth = getDaysInMonth(date);
     const monthStartsOn = getDayOfWeek(date);
     let day = 1;
 
     for (let i = 0; i < (daysInMonth + monthStartsOn) / DAYS_IN_WEEK; i++) {
-        result[i] = [];
+        result[i] = [0];
 
         for (let j = 0; j < DAYS_IN_WEEK; j++) {
             if ((i === 0 && j < monthStartsOn) || day > daysInMonth) {
