@@ -116,7 +116,8 @@ const Calendar: FC = () => {
                                     'today' : calendar.areEqual(date,currentDate),
                                     'selected': calendar.areEqual(date, selectedDate)
                                 })}
-                                onClick={() => handleDayClick(date)}
+
+                                onClick={calendar.areEqual(date,currentDate) || date > currentDate ? () => handleDayClick(date) : null}
                             >{date.getDate()}</td>
                             :
                             <td key={index} />
