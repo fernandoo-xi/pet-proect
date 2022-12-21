@@ -1,0 +1,134 @@
+.aside {
+    position: absolute;
+    z-index: 5;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 30%;
+    background: #fdf5e6;
+    transition-property: left;
+    transition-duration: 1s;
+}
+
+.hide-aside {
+    left: -470px;
+}
+
+.time-block {
+    color: #591BC5;
+    font-size: 24px;
+    display: grid;
+    gap: 30px 15px;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 75px);
+    text-align: center;
+    padding-left: 30px;
+}
+
+.time {
+    border: 1px solid #591BC5;
+    width: 170px;
+    height: 80px;
+    background: #FFFFFF;
+    transition-property: transform, background-color, color, border;
+    transition-duration: 0.5s;
+}
+
+.time:hover {
+    transform: scale(1.2);
+}
+
+.active-time {
+    transform: scale(1.2);
+    background-color: #444444;
+    color: #FFFFFF;
+    border: none;
+}
+
+.time span {
+    position: relative;
+    top: 30px;
+}
+
+.panel-header {
+    color: black;
+    padding-left: 40px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid rgba(0,0,0,0.3);
+}
+
+.panel-header::before {
+    content: "";
+    border: 1px solid #fdf5e6;
+    width: 30px;
+    background: #fdf5e6;
+    position: absolute;
+    transform: rotate(180deg);
+    top: 66px;
+    left: 0;
+}
+
+.panel-header::after {
+    content: "";
+    border: 1px solid #fdf5e6;
+    width: 30px;
+    background: #fdf5e6;
+    position: absolute;
+    transform: rotate(180deg);
+    top: 66px;
+    right: 0;
+}
+
+.message {
+    padding-left: 30px;
+    color: black;
+}
+
+.panel-button {
+    position: relative;
+    left: 220px;
+    top: 15px;
+    width: 200px;
+    height: 60px;
+    border: none;
+    font-size: 20px;
+    background: #23d5ab;
+    transition-property: background-color;
+    transition-duration: 0.5s;
+}
+
+.panel-button:hover {
+    background-color: #23a6d5;
+}
+
+.hide {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    top: 10px;
+    left: 410px;
+}
+
+.hide::before {
+    content: "";
+    border: 2px solid #444444;
+    width: 30px;
+    background: #444444;
+    position: absolute;
+    transform: rotate(45deg);
+    top: 15px;
+
+}
+
+.hide::after {
+    content: "";
+    border: 2px solid #444444;
+    width: 30px;
+    background: #444444;
+    position: absolute;
+    transform: rotate(-45deg);
+    top: 15px;
+}
+
+
+

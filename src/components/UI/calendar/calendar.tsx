@@ -1,12 +1,12 @@
 // @ts-nocheck
 import React, {FC, useRef, useState} from 'react';
 import classnames from 'classnames';
-import {format} from 'date-fns';
-import {ru} from 'date-fns/locale';
 
 import * as calendar from "./caledarfuck";
 
 import './Calendar.css';
+import CalendarPanel from "./calendar-panel";
+import {useNavigate} from "react-router-dom";
 
 const Calendar: FC = () => {
     const initialState = {
@@ -26,20 +26,23 @@ const Calendar: FC = () => {
              10: 'Ноябрь',
              11: 'Декабрь'
         },
-        weekDayNames: ['Пн', 'Вт', 'Ср', 'Чт' , 'Пт', 'Сб', 'Вс'],
+        weekDayNames: ['Понедельник', 'Вторник', 'Среда', 'Четверг' , 'Пятница', 'Суббота', 'Воскресенье'],
         onChange: Function.prototype
     };
+
+    const navigate = useNavigate();
 
     const [date, setDate] = useState(initialState.date);
     const [monthSelect, setMonthSelect] = useState(<select value={0}></select> as unknown as HTMLSelectElement["value"]);
     const [yearSelect, setYearSelect] = useState(<select value={0}></select> as unknown as HTMLSelectElement["value"]);
     const [currentDate] = useState(new Date());
     const [selectedDate, setSelectedDate] = useState(null);
-    const [selectedTime, setSelectedTime] = useState(null);
+
+    const [isClosed, setIsClosed] = useState(true);
 
 
     const monthData = calendar.getMonthData(date.getFullYear(), date.getMonth());
-    const dayTime = ['20:00', '21:00'];
+
 
     const { monthNames, weekDayNames } = initialState;
 
@@ -67,18 +70,23 @@ const Calendar: FC = () => {
 
     const handleDayClick = (date: any) => {
         setSelectedDate(date)
+        setIsClosed(false)
         initialState.onChange(date);
     };
 
-    const choiceTime = (e) => {
-        setSelectedTime(e.target.textContent)
-    };
+    const toMain = () => {
+        navigate("/");
+    }
+
 
         return (
-        <div className={"calendar"}>
-            <div>
-                <button onClick={handlePrevMonthButtonClick} disabled={currentDate >= date}>{"<"}</button>
 
+        <div className={"calendar"}>
+            <div className={'header'}>
+            <h2 className={'calendar-header'} onClick={() => toMain()}>FlexМекс CALENDAR</h2>
+            <div className={'month'}>
+
+                <div className={'month_item'}>
                 <div
                     ref={element => {
                         setMonthSelect(element);
@@ -95,18 +103,30 @@ const Calendar: FC = () => {
                 >
                     {date.getFullYear()}
                 </div>
-
-                <button onClick={handleNextMonthButtonClick} disabled={Math.ceil( (date - currentDate) / (1000 * 60 * 60 * 24 * 30) % 12) > 1}>{">"}</button>
+                </div>
+                <div className={'month_buttons'}>
+                <button className={"left-arrow_2"}
+                        onClick={handlePrevMonthButtonClick}
+                        disabled={currentDate >= date}
+                ></button>
+                    <button className={"right-arrow_2"}
+                            onClick={handleNextMonthButtonClick}
+                            disabled={Math.ceil( (date - currentDate) / (1000 * 60 * 60 * 24 * 30) % 12) > 1}
+                    ></button>
+                </div>
+                </div>
             </div>
-            <table>
-                <thead>
-                <tr>
+            <div className={'back_days-list'}></div>
+            <div className={'back_week-list'}></div>
+            <table className={'days-list'}>
+                <thead >
+                <tr >
                     {weekDayNames.map((name) =>
-                        <th key={name}>{name}</th>
+                        <th className={'week-name'} key={name}>{name}</th>
                     )}
                 </tr>
                 </thead>
-                <tbody>
+                <tbody className={'days'}>
                 {monthData.map((week, index) =>
                     <tr key={index} className="week">
                         {week.map((date, index) => date ?
@@ -120,18 +140,15 @@ const Calendar: FC = () => {
                                 onClick={calendar.areEqual(date,currentDate) || date > currentDate ? () => handleDayClick(date) : null}
                             >{date.getDate()}</td>
                             :
-                            <td key={index} />
+                            <td className={'day'} key={index} />
                         )}
                     </tr>
                 )}
                 </tbody>
             </table>
-            <div>
-                {selectedDate  && <p>{format(new Date(selectedDate), 'd MMMM, iiii', {locale: ru})}</p>}
-            </div>
-            <div>
-                {selectedDate && dayTime.map(time => <div onClick={choiceTime}>{time}</div>)}
-            </div>
+
+            {selectedDate  && <CalendarPanel selectedDate={selectedDate} />}
+
 
         </div>
     )

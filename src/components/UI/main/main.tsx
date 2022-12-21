@@ -21,8 +21,8 @@ const Main: FC = () => {
             <header>
                 <nav>
                     <ul>
-                        <li><a href="/">Войти</a></li>
-                        <li><a href="/">Зарегестрироваться</a></li>
+                        <li><a href="/sign-in">Войти</a></li>
+                        <li><a href="/sign-up">Зарегестрироваться</a></li>
                     </ul>
                 </nav>
 
