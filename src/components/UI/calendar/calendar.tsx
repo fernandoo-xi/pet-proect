@@ -30,6 +30,8 @@ const Calendar: FC = () => {
         onChange: Function.prototype
     };
 
+
+
     const navigate = useNavigate();
 
     const [date, setDate] = useState(initialState.date);
@@ -50,7 +52,6 @@ const Calendar: FC = () => {
         const changeDate = new Date(date.getFullYear(), date.getMonth() -1);
         setDate(changeDate);
     };
-
 
 
     const handleNextMonthButtonClick = () => {
@@ -76,6 +77,11 @@ const Calendar: FC = () => {
 
     const toMain = () => {
         navigate("/");
+    }
+
+    const SignOut = () => {
+        localStorage.removeItem('user');
+        toMain();
     }
 
 
@@ -115,6 +121,7 @@ const Calendar: FC = () => {
                     ></button>
                 </div>
                 </div>
+                <button className={'sign-out-btn'} onClick={SignOut}>Выйти</button>
             </div>
             <div className={'back_days-list'}></div>
             <div className={'back_week-list'}></div>

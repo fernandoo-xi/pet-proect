@@ -7,6 +7,8 @@ import "./sign-in.css";
 
 const SignIn: FC = () => {
 
+
+
     const [login, setLogin] = useState('');
     const [password, setPassword] = useState('');
     const [notUser, setNotUser] = useState(false)
@@ -22,11 +24,11 @@ const SignIn: FC = () => {
 
     const checkData = (e:any) => {
         e.preventDefault();
-        if (data.getUser != null) {
+        if (data.getUser != null  && data.getUser.password == password) {
+            localStorage.setItem('user', login);
             navigate("/calendar");
         } else {
             setNotUser(true);
-            setLogin('');
             setPassword('');
         }
     }
@@ -73,7 +75,7 @@ const SignIn: FC = () => {
                     Войти
                 </button>
             </form>
-            {notUser && <p>Вы ввели неправильный логин или пароль</p>}
+            {notUser && <div className={'sign-in-error'}>Вы ввели неправильный логин или пароль</div>}
         </div>
         </div>
     );

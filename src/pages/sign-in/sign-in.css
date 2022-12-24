@@ -1,7 +1,7 @@
 .sign-back,
 .signin {
     background-color: #d3d3d3;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Comfortaa', sans-serif;
     color: #fff;
     font-size: 14px;
     letter-spacing: 1px;
@@ -83,7 +83,7 @@
 
 .text[type="text"],
 .text[type="password"] {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Comfortaa', sans-serif;
     color: #fff;
 }
 
@@ -123,5 +123,18 @@
 
 .signin:focus {
     outline: none;
+}
+
+.error-message {
+    position: relative;
+    top: -10px;
+    left: 10px;
+    font-size: 12px;
+}
+
+.sign-in-error {
+    position: relative;
+    left: 15px;
+    top: 15px;
 }
 

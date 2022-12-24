@@ -1,4 +1,4 @@
-
+// @ts-nocheck
 import React, {FC, useEffect, useState} from 'react';
 import {BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
@@ -16,12 +16,11 @@ import SignUp from "../../pages/sign-up/sign-up";
 const App: FC = () => {
 
 
-
     return (
         <Router>
       <Routes>
           <Route path="/" element={<Main />} />
-          <Route path="/calendar" element={<Calendar />} />
+          <Route path="/calendar" element={<RequireAuth> <Calendar /> </RequireAuth>} />
           <Route path="/sign-in" element={<SignIn />} />
           <Route path="/sign-up" element={<SignUp />} />
 

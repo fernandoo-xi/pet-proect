@@ -8,3 +8,11 @@ export const GET_USER = gql`
     }    
 
 `
+export const GET_USER_NAME = gql`
+    query getUserName($username: String!){
+        getUserName(username: $username) {
+            username
+        }
+    }    
+
+`
