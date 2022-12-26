@@ -6,23 +6,17 @@
   margin: 0;
   padding: 0;
   animation: Gradient 15s ease infinite;
-  height: 100vh;
-  overflow: hidden;
 
+  height: 100%;
 }
 
 .info-wrapper {
   display: flex;
+  justify-content: space-around;
   flex-wrap: wrap;
-  margin-top: 40px;
 }
 
 .info {
-  width: 40%;
-  margin-left: 100px;
-}
-
-.info:nth-child(3) {
   width: 45%
 }
 
@@ -41,11 +35,8 @@
 
 
 .btn {
-  position: relative;
-  top: 30px;
-  left: 60px;
-  width: 30%;
-  height: 10%;
+  width: 12em;
+  height: 3em;
   display: inline-block;
   box-sizing: border-box;
   padding: 0 24px;
@@ -58,7 +49,7 @@
   font-weight: normal;
   text-decoration: none;
   color: #23d5ab;
-  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+  background: linear-gradient(-45deg, #23d5ab, #23a6d5, #e73c7e, #ee7752);
   background-size: 400% 400%;
   animation: Gradient 15s ease infinite;
   cursor: pointer;
@@ -67,12 +58,11 @@
   touch-action: manipulation;
   transition: box-shadow .18s ease-out,background .18s ease-out,color .18s ease-out;
   font-size: 30px;
+  text-align: center;
 }
 
 .btn p {
-  position: relative;
-  top: -15%;
-  left: 20%;
+  font-size: 30px;
 }
 
 .btn:focus-visible {
@@ -90,3 +80,34 @@
   pointer-events: none;
 }
 
+
+@media screen and (max-width: 767.98px) {
+
+  .about {
+    height: auto;
+    overflow-x: hidden;
+  }
+
+  .info {
+    width: 90%;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .info p {
+    font-size: 15px;
+  }
+
+  .info-wrapper {
+    display: block;
+  }
+
+  .hidden {
+    display: none;
+  }
+
+  .btn {
+    width: 9em;
+    height: 2.5em;
+  }
+}

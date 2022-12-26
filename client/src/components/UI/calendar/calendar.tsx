@@ -27,6 +27,7 @@ const Calendar: FC = () => {
              11: 'Декабрь'
         },
         weekDayNames: ['Понедельник', 'Вторник', 'Среда', 'Четверг' , 'Пятница', 'Суббота', 'Воскресенье'],
+        weekDayNamesMobile: ['Пн', 'Вт', 'Ср', 'Чт' , 'Пт', 'Сб', 'Вс'],
         onChange: Function.prototype
     };
 
@@ -46,7 +47,7 @@ const Calendar: FC = () => {
     const monthData = calendar.getMonthData(date.getFullYear(), date.getMonth());
 
 
-    const { monthNames, weekDayNames } = initialState;
+    const { monthNames, weekDayNames, weekDayNamesMobile } = initialState;
 
     const handlePrevMonthButtonClick = () => {
         const changeDate = new Date(date.getFullYear(), date.getMonth() -1);
@@ -121,15 +122,20 @@ const Calendar: FC = () => {
                     ></button>
                 </div>
                 </div>
-                <button className={'sign-out-btn'} onClick={SignOut}>Выйти</button>
+                <button className={'sign-out-btn hidden'} onClick={SignOut}>Выйти</button>
             </div>
             <div className={'back_days-list'}></div>
             <div className={'back_week-list'}></div>
             <table className={'days-list'}>
                 <thead >
-                <tr >
+                <tr className={"desktop"}>
                     {weekDayNames.map((name) =>
                         <th className={'week-name'} key={name}>{name}</th>
+                    )}
+                </tr>
+                <tr className={"mobile"}>
+                    {weekDayNamesMobile.map((name) =>
+                      <th className={'week-name'} key={name}>{name}</th>
                     )}
                 </tr>
                 </thead>

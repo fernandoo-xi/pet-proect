@@ -5,12 +5,10 @@
     color: #fff;
     font-size: 14px;
     letter-spacing: 1px;
-    height: 100vh;
+    height: 100%;
 }
 
 .login {
-    position: relative;
-    top: 30px;
     height: 560px;
     width: 405px;
     margin: auto;
@@ -138,3 +136,47 @@
     top: 15px;
 }
 
+@media screen and (max-width: 767.98px) {
+    .sign-back {
+        overflow: hidden;
+
+    }
+
+    .login {
+        height: 100vh;
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+
+    .form-header {
+        padding-left: 0;
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .active {
+        border-bottom: none;
+    }
+
+    .hidden {
+        display: none;
+    }
+
+    .text {
+        width: 250px;
+    }
+
+    .error-message {
+        top: 0;
+        word-wrap: break-word;
+    }
+
+    .signin {
+        width: 250px;
+    }
+
+    .sign-form {
+        border-top: 3px solid #FFFFFF;
+    }
+
+}

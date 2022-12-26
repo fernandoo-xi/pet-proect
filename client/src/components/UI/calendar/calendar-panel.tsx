@@ -50,7 +50,7 @@ const CalendarPanel: FC = (propsDate: Date) => {
             </div>
             <div className={'message'}>
                 <h2>Добавить коментарий</h2>
-                <textarea name="" id="" cols="50" rows="5"></textarea>
+                <textarea className={"aside-textarea"} rows="3"></textarea>
             </div>
             <button className={'panel-button'}>Выбрать</button>
         </aside>

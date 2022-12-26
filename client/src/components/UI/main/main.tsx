@@ -54,7 +54,9 @@ const Main: FC = () => {
                         to="about"
                         spy={true}
                         smooth={true}
-                        duration={2000}
+                        offset={200}
+                        duration={2500}
+                        className={"arrow-block"}
                     >
                         <div className={"arrow-8"}></div>
                     </Link>

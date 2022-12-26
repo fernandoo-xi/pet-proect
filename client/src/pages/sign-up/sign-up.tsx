@@ -133,6 +133,7 @@ const SignUp: FC = () => {
               <form className={'sign-form'}>
 
                   <input value={username}
+                         placeholder={'Имя'}
                          className={'text'}
                          type={"text"}
                          onChange={(e) => {
@@ -142,11 +143,12 @@ const SignUp: FC = () => {
                          readOnly={isReadonly}
                          onFocus={() => setIsReadonly(false)}
                   />
-                  <span className={'input-header'}>Имя</span>
+                  <span className={'input-header hidden'}>Имя</span>
                   {isName && <div className={'error-message'}>Такое имя уже существует</div>}
                   {isEmpty && onName && <div className={'error-message'}>Пустое поле</div>}
 
                   <input value={login}
+                         placeholder={'Email'}
                          className={'text'}
                          type={"text"}
                          onChange={(e) => {
@@ -159,11 +161,12 @@ const SignUp: FC = () => {
                              setIsReadonly(false)
                          }}
                   />
-                  <span className={'input-header'}>Email</span>
+                  <span className={'input-header hidden'}>Email</span>
                   {isLogin && <div className={'error-message'}>Такой email уже существует</div>}
                   {emailError && isError && onLogin && <div className={'error-message'}>Не валидный email</div>}
 
                   <input value={password}
+                         placeholder={'Пароль'}
                          className={'text'}
                          type={"password"}
                          onChange={(e) => {
@@ -174,8 +177,8 @@ const SignUp: FC = () => {
                          readOnly={isReadonly}
                          onFocus={() => setIsReadonly(false)}
                   />
-                  <span className={'input-header'}>Пароль</span>
-                  {minPasswordLength && isError && onPassword && <div className={'error-message'}>Пароль должен содеражать не менее 8 символов</div>}
+                  <span className={'input-header hidden'}>Пароль</span>
+                  {minPasswordLength && isError && onPassword && <div className={'error-message'}>Минимум 8 символов</div>}
                   <button
                       className={'signin'}
                       onClick={(e) => checkForm(e)}

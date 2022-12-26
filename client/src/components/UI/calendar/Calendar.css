@@ -174,4 +174,66 @@
     background: #23d5ab;
 }
 
+.mobile {
+    display: none;
+}
+
+@media screen and (max-width: 767.98px) {
+
+    .calendar-header {
+        text-align: center;
+        margin-top: 30px;
+        margin-bottom: 50px;
+    }
+
+    .header {
+        flex-direction: column;
+    }
+
+    .hidden {
+        display: none;
+    }
+
+    .month {
+        font-size: 20px;
+        justify-content: center;
+    }
+
+    .month_item {
+        display: flex;
+        width: 150px;
+        justify-content: space-between;
+    }
+    .desktop {
+        display: none;
+    }
+
+    .mobile {
+        display: table-row;
+    }
+
+    .days-list {
+        height: 45%;
+        padding-top: 20px;
+        border-collapse: collapse;
+        position: relative;
+        left: 7.5%;
+        z-index: 5;
+
+    }
+
+    .week-name {
+        padding: 0;
+        padding-top: 15px;
+    }
+
+    .day {
+        font-size: 16px;
+        width: 10%;
+    }
+    .back_days-list {
+        height: 52%;
+    }
+}
+
 

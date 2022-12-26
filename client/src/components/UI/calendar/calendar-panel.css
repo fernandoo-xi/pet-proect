@@ -18,21 +18,20 @@
 .time-block {
     color: #591BC5;
     font-size: 24px;
-    display: grid;
-    gap: 30px 15px;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(3, 75px);
+    display: flex;
+    flex-wrap: wrap;
     text-align: center;
-    padding-left: 30px;
+    justify-content: space-evenly;
 }
 
 .time {
     border: 1px solid #591BC5;
-    width: 170px;
-    height: 80px;
+    width: 140px;
+    height: 60px;
     background: #FFFFFF;
     transition-property: transform, background-color, color, border;
     transition-duration: 0.5s;
+    margin-bottom: 1rem;
 }
 
 .time:hover {
@@ -48,7 +47,7 @@
 
 .time span {
     position: relative;
-    top: 30px;
+    top: 1rem;
 }
 
 .panel-header {
@@ -60,7 +59,7 @@
 
 .panel-header::before {
     content: "";
-    border: 1px solid #fdf5e6;
+    border: 3px solid #fdf5e6;
     width: 30px;
     background: #fdf5e6;
     position: absolute;
@@ -71,7 +70,7 @@
 
 .panel-header::after {
     content: "";
-    border: 1px solid #fdf5e6;
+    border: 3px solid #fdf5e6;
     width: 30px;
     background: #fdf5e6;
     position: absolute;
@@ -81,16 +80,17 @@
 }
 
 .message {
+    font-size: 15px;
     padding-left: 30px;
     color: black;
 }
 
 .panel-button {
     position: relative;
-    left: 220px;
-    top: 15px;
-    width: 200px;
-    height: 60px;
+    left: 14.5rem;
+    top: 1rem;
+    width: 9rem;
+    height: 4rem;
     border: none;
     font-size: 20px;
     background: #23d5ab;
@@ -106,8 +106,8 @@
     position: absolute;
     width: 40px;
     height: 40px;
-    top: 10px;
-    left: 410px;
+    top: 1rem;
+    right: 0;
 }
 
 .hide::before {
@@ -131,5 +131,16 @@
     top: 15px;
 }
 
+.aside-textarea {
+    width: 90%;
+}
 
+@media screen and (max-width: 767.98px) {
+    .aside {
+        width: 100%;
+    }
 
+    .panel-button {
+        left: 12.5rem;
+    }
+}

@@ -49,6 +49,7 @@ const SignIn: FC = () => {
             </h2>
             <form className={'sign-form'}>
                 <input value={login}
+                       placeholder={'Email'}
                        className={'text'}
                        type={"text"}
                        onChange={(e) => setLogin(e.target.value)}
@@ -56,9 +57,10 @@ const SignIn: FC = () => {
                        readOnly={isReadonly}
                        onFocus={() => setIsReadonly(false)}
                 />
-                    <span className={'input-header'}>Email</span>
+                    <span className={'input-header hidden'}>Email</span>
 
                 <input value={password}
+                       placeholder={'Пароль'}
                        className={'text'}
                        type={"password"}
                        onChange={(e) => setPassword(e.target.value)}
@@ -66,7 +68,7 @@ const SignIn: FC = () => {
                        readOnly={isReadonly}
                        onFocus={() => setIsReadonly(false)}
                 />
-                    <span className={'input-header'}>Пароль</span>
+                    <span className={'input-header hidden'}>Пароль</span>
 
                 <button
                     onClick={(e) => checkData(e)}
